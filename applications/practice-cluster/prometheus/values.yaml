@@ -1,0 +1,25 @@
+clusterDomain: practice-cluster.local
+prometheus:
+  externalLabels:
+    cluster: "practice-cluster"
+  additionalScrapeConfigs:
+    enabled: true
+    type: internal
+    internal:
+      jobList:
+        - job_name: 'neuvector-practice-cluster'
+          scrape_interval: 30s
+          scrape_timeout: 10s
+          static_configs:
+            - targets: ['neuvector-prometheus-exporter.cattle-neuvector-system.svc.cluster.local:8068']
+              labels:
+                cluster: 'practice-cluster'
+  remoteWrite:
+    - url: https://thanos.rajesh-kumar.in/api/v1/receive
+      basicAuth:
+        username:
+          name: grafana-creds-secret
+          key: thanos_receive_user
+        password:
+          name: grafana-creds-secret
+          key: thanos_receive_pass

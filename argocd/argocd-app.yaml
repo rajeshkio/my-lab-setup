@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: main
+  namespace: argo
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/rk280392/my-lab-setup.git
+      revision: main
+      directories:
+      - path: lab-setup/applications/* 
+  - list:
+      elements:
+        - cluster: practice-cluster
+          app-name: prometheus
+          cluster-name: practice-cluster
+  template:
+    metadata:
+      name: '{{app-name}}'
+      namespace: argo
+    spec:
+      project: default
+      source:
+        repoURL: 'https://charts.bitnami.com/bitnami'
+        targetRevision: 8.22.5
+        helm:
+          valueFiles:
+          - "{{cluster}}/{{app-name}}/values.yaml"
+        chart: kube-prometheus
+      destination:
+        name: '{{cluster-name}}'
+        namespace: monitoring
+      syncPolicy:
+        syncOptions:
+          - ServerSideApply=true
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=true
+          - Replace=true
+        automated:
+          prune: true
+          selfHeal: true
