@@ -15,6 +15,10 @@ spec:
           app-name: grafana
           cluster-name: practice-cluster
           namespace: monitoring
+        - cluster: practice-cluster
+          app-name: neuvector
+          cluster-name: practice-cluster
+          namespace: cattle-neuvector-system
   template:
     metadata:
       name: '{{app-name}}-{{cluster-name}}-cm'

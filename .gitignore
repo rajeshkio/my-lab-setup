@@ -1,1 +1,2 @@
 applications/local-cluster/thanos/htpassword
+nginx-reverse-proxy.pem

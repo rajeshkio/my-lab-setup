@@ -13,30 +13,49 @@ spec:
           chart: kube-prometheus
           targetRevision: 8.22.5
           repoURL: 'https://charts.bitnami.com/bitnami'
+          namespace: monitoring
         - cluster: local-cluster
           app-name: prometheus
           cluster-name: in-cluster
           chart: kube-prometheus
           targetRevision: 8.22.5
           repoURL: 'https://charts.bitnami.com/bitnami'
+          namespace: monitoring
         - cluster: home-cluster
           app-name: prometheus
           cluster-name: default
           chart: kube-prometheus
           targetRevision: 8.22.5
           repoURL: 'https://charts.bitnami.com/bitnami'
+          namespace: monitoring
         - cluster: local-cluster
           app-name: thanos
           cluster-name: in-cluster
           chart: thanos
           targetRevision: 12.16.1
           repoURL: 'https://charts.bitnami.com/bitnami'
+          namespace: monitoring
         - cluster: practice-cluster
           app-name: grafana
           cluster-name: practice-cluster
           chart: grafana
           targetRevision: 7.0.8
           repoURL: 'https://grafana.github.io/helm-charts'
+          namespace: monitoring
+        - cluster: practice-cluster
+          app-name: neuvector
+          cluster-name: practice-cluster
+          chart: core
+          targetRevision: 2.6.6
+          repoURL: 'https://neuvector.github.io/neuvector-helm/'
+          namespace: cattle-neuvector-system
+        - cluster: practice-cluster
+          app-name: nv-monitor
+          cluster-name: practice-cluster
+          chart: monitor
+          targetRevision: 2.6.6
+          repoURL: 'https://neuvector.github.io/neuvector-helm/'
+          namespace: cattle-neuvector-system
   template:
     metadata:
       name: '{{app-name}}-{{cluster}}'
@@ -55,7 +74,7 @@ spec:
           ref: values
       destination:
         name: '{{cluster-name}}'
-        namespace: monitoring
+        namespace: '{{namespace}}'
       syncPolicy:
         syncOptions:
           - ServerSideApply=true
