@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ingress-routes
+  name: configmaps
   namespace: argo
 spec:
   generators:
@@ -17,7 +17,7 @@ spec:
           namespace: monitoring
   template:
     metadata:
-      name: '{{app-name}}-{{cluster-name}}-ingress-route'
+      name: '{{app-name}}-{{cluster-name}}-cm'
       namespace: argo
     spec:
       project: default
@@ -26,7 +26,7 @@ spec:
         name: '{{cluster-name}}'
       source:
         repoURL: https://github.com/rk280392/my-lab-setup.git
-        path: 'applications/{{cluster}}/{{app-name}}/ingressRoute'
+        path: 'applications/{{cluster}}/{{app-name}}/configmaps'
         targetRevision: HEAD
       syncPolicy:
         automated:

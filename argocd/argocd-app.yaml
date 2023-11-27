@@ -12,21 +12,31 @@ spec:
           cluster-name: practice-cluster
           chart: kube-prometheus
           targetRevision: 8.22.5
+          repoURL: 'https://charts.bitnami.com/bitnami'
         - cluster: local-cluster
           app-name: prometheus
           cluster-name: in-cluster
           chart: kube-prometheus
           targetRevision: 8.22.5
+          repoURL: 'https://charts.bitnami.com/bitnami'
         - cluster: home-cluster
           app-name: prometheus
           cluster-name: default
           chart: kube-prometheus
           targetRevision: 8.22.5
+          repoURL: 'https://charts.bitnami.com/bitnami'
         - cluster: local-cluster
           app-name: thanos
           cluster-name: in-cluster
           chart: thanos
           targetRevision: 12.16.1
+          repoURL: 'https://charts.bitnami.com/bitnami'
+        - cluster: practice-cluster
+          app-name: grafana
+          cluster-name: practice-cluster
+          chart: grafana
+          targetRevision: 7.0.8
+          repoURL: 'https://grafana.github.io/helm-charts'
   template:
     metadata:
       name: '{{app-name}}-{{cluster}}'
@@ -34,7 +44,7 @@ spec:
     spec:
       project: default
       sources:
-        - repoURL: 'https://charts.bitnami.com/bitnami'
+        - repoURL: '{{repoURL}}'
           targetRevision: '{{targetRevision}}'
           helm:
             valueFiles:

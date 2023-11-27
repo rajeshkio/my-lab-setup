@@ -1,0 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana-ingressroute
+  namespace: monitoring
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+  - match: Host(`grafana.rajesh-kumar.in`)
+    kind: Rule
+    services:
+    - name: grafana-practice-cluster
+      port: 80
+      scheme: http
+  tls:
+    secretName: rancher-tls-cert
+

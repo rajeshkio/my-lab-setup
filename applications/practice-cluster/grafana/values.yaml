@@ -1,0 +1,18 @@
+admin:
+  existingSecret: "grafana-creds-secret"
+  userKey: GF_SECURITY_ADMIN_USER
+  passwordKey: GF_SECURITY_ADMIN_PASSWORD
+envFromConfigMaps:
+  - name: grafana-config
+envValueFrom:
+  GF_AUTH_GITHUB_CLIENT_ID:
+    secretKeyRef:
+      name: grafana-creds-secret
+      key: GF_AUTH_GITHUB_CLIENT_ID
+  GF_AUTH_GITHUB_CLIENT_SECRET:
+    secretKeyRef:
+      name: grafana-creds-secret
+      key: GF_AUTH_GITHUB_CLIENT_SECRET
+grafana.ini:
+  server:
+    root_url: "https://grafana.rajesh-kumar.in"
