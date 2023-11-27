@@ -1,6 +1,6 @@
 receive:
   enabled: "true"
-existingObjstoreSecret: thanos-obj-secret"
+existingObjstoreSecret: "thanos-obj-secret"
 metrics:
   enabled: "true"
   prometheusRule:

@@ -21,18 +21,16 @@ spec:
   - match: Host(`thanos.rajesh-kumar.in`)  && PathPrefix(`/api/v1/receive`)
     kind: Rule
     services:
-    - name: thanos-receive
+    - name: thanos-local-cluster-receive
       port: 19291
     middlewares:
     - name: thanos-receive-auth
   - match: Host(`thanos.rajesh-kumar.in`)  && PathPrefix(`/`)
     kind: Rule
     services:
-    - name: thanos-query-frontend
+    - name: thanos-local-cluster-query-frontend
       port: 9090
     middlewares:
     - name: thanos-receive-auth
   tls:
     secretName: rancher-tls-cert
-
-
