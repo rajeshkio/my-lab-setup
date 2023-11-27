@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-root-app
+  namespace: argo
+spec:
+  project: default
+  destination:
+    namespace: argo
+    name: in-cluster
+  source:
+    repoURL: https://github.com/rk280392/my-lab-setup.git
+    path: argocd
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+      - allowEmpty=true
+      - CreateNamespace=true
+      - Replace=true
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
