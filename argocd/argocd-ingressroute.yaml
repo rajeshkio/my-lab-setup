@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: ingress-routes
+  namespace: argo
+spec:
+  generators:
+  - list:
+      elements:
+        - cluster: local-cluster
+          app-name: thanos
+          cluster-name: in-cluster
+          namespace: monitoring
+  template:
+    metadata:
+      name: '{{app-name}}-{{cluster-name}}-ingress-route'
+      namespace: argo
+    spec:
+      project: default
+      destination:
+        namespace: '{{namespace}}'
+        name: '{{cluster-name}}'
+      source:
+        repoURL: https://github.com/rk280392/my-lab-setup.git
+        path: 'applications/{{cluster}}/{{app-name}}/ingressRoute'
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true

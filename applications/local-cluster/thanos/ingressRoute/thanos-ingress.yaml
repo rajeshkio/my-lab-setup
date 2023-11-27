@@ -1,0 +1,38 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: thanos-receive-auth
+  namespace: monitoring
+spec:
+  basicAuth:
+    secret: "thanos-receive-auth-secret"
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: thanos-ingressroute
+  namespace: monitoring
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`thanos.rajesh-kumar.in`)  && PathPrefix(`/api/v1/receive`)
+    kind: Rule
+    services:
+    - name: thanos-receive
+      port: 19291
+    middlewares:
+    - name: thanos-receive-auth
+  - match: Host(`thanos.rajesh-kumar.in`)  && PathPrefix(`/`)
+    kind: Rule
+    services:
+    - name: thanos-query-frontend
+      port: 9090
+    middlewares:
+    - name: thanos-receive-auth
+  tls:
+    secretName: rancher-tls-cert
+
+

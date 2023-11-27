@@ -1,0 +1,9 @@
+receive:
+  enabled: "true"
+existingObjstoreSecret: thanos-obj-secret"
+metrics:
+  enabled: "true"
+  prometheusRule:
+    enabled: "true"
+    namespace: "monitoring"
+

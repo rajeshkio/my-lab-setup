@@ -10,12 +10,23 @@ spec:
         - cluster: practice-cluster
           app-name: prometheus
           cluster-name: practice-cluster
+          chart: kube-prometheus
+          targetRevision: 8.22.5
         - cluster: local-cluster
           app-name: prometheus
           cluster-name: in-cluster
+          chart: kube-prometheus
+          targetRevision: 8.22.5
         - cluster: home-cluster
           app-name: prometheus
           cluster-name: default
+          chart: kube-prometheus
+          targetRevision: 8.22.5
+        - cluster: local-cluster
+          app-name: thanos
+          cluster-name: in-cluster
+          chart: thanos
+          targetRevision: 12.16.1
   template:
     metadata:
       name: '{{app-name}}-{{cluster}}'
@@ -24,11 +35,11 @@ spec:
       project: default
       sources:
         - repoURL: 'https://charts.bitnami.com/bitnami'
-          targetRevision: 8.22.5
+          targetRevision: '{{targetRevision}}'
           helm:
             valueFiles:
               - '$values/applications/{{cluster}}/{{app-name}}/values.yaml'
-          chart: kube-prometheus
+          chart: '{{chart}}'
         - repoURL: 'https://github.com/rk280392/my-lab-setup.git'
           targetRevision: HEAD
           ref: values
