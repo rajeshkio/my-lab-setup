@@ -1,7 +1,5 @@
 receive:
   enabled: "true"
-  nodeSelector:
-    kubernetes.io/hostname: raspberrypi-1
 existingObjstoreSecret: "thanos-obj-secret"
 metrics:
   enabled: "true"
