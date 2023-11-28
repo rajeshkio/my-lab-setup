@@ -7,7 +7,7 @@ spec:
   project: default
   destination:
     namespace: argo
-    name: in-cluster
+    name: home-cluster
   source:
     repoURL: https://github.com/rk280392/my-lab-setup.git
     path: argocd

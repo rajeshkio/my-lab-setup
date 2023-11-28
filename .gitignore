@@ -1,2 +1,6 @@
 applications/local-cluster/thanos/htpassword
 nginx-reverse-proxy.pem
+rajesh-homeserver.ddns.net.csr
+rajesh-homeserver.ddns.net.key
+rajesh-homeserver_ddns_net.pem
+

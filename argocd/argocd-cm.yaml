@@ -9,25 +9,22 @@ spec:
       elements:
         - cluster: local-cluster
           app-name: thanos
-          cluster-name: in-cluster
           namespace: monitoring
         - cluster: practice-cluster
           app-name: grafana
-          cluster-name: practice-cluster
           namespace: monitoring
         - cluster: practice-cluster
           app-name: neuvector
-          cluster-name: practice-cluster
           namespace: cattle-neuvector-system
   template:
     metadata:
-      name: '{{app-name}}-{{cluster-name}}-cm'
+      name: '{{app-name}}-{{cluster}}-cm'
       namespace: argo
     spec:
       project: default
       destination:
         namespace: '{{namespace}}'
-        name: '{{cluster-name}}'
+        name: '{{cluster}}'
       source:
         repoURL: https://github.com/rk280392/my-lab-setup.git
         path: 'applications/{{cluster}}/{{app-name}}/configmaps'
