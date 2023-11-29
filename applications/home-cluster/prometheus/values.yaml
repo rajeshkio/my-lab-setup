@@ -2,6 +2,18 @@ clusterDomain: home-cluster.local
 prometheus:
   externalLabels:
     cluster: "home-cluster"
+  additionalScrapeConfigs:
+    enabled: true
+    type: internal
+    internal:
+      jobList:
+        - job_name: 'argocd-home-cluster'
+          scrape_interval: 30s
+          scrape_timeout: 10s
+          static_configs:
+            - targets: ['argo-argocd-server-metrics.argo.svc.cluster.local:8083']
+              labels:
+                cluster: 'home-cluster'
   remoteWrite:
     - url: https://thanos.rajesh-kumar.in/api/v1/receive
       basicAuth:
