@@ -2,6 +2,12 @@ clusterDomain: local-cluster.local
 prometheus:
   externalLabels:
     cluster: "local-cluster"
+  additionalScrapeConfigs:
+    enabled: true
+    type: external
+    external:
+      name: "nginx-exporter"
+      key: "prometheus-nginx.yaml"
   remoteWrite:
     - url: https://thanos.rajesh-kumar.in/api/v1/receive
       basicAuth:

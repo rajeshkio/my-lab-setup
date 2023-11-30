@@ -6,6 +6,7 @@ certs/rajesh-homeserver_ddns_net.pem
 rancher-master/rancher-tls-secret.yaml
 rancher-master/aws-route53-creds.yaml
 rancher-master/argocd-multi-rancher-cluster-secret.yaml
+prometheus-nginx.yaml
 rancher-master/wildcard-tls-secret.yaml
 rancher-master/vaults/vault-tokens
 rancher-master/vaults/vaultTokenSecret.yaml
