@@ -2,6 +2,14 @@ clusterDomain: home-cluster.local
 prometheus:
   externalLabels:
     cluster: "home-cluster"
+  podMetadata:
+    annotations: 
+      notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-deleted.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-deployed.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-health-degraded.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-sync-failed.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: argocd-alerts
   additionalScrapeConfigs:
     enabled: true
     type: internal
