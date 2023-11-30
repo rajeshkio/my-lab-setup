@@ -21,6 +21,8 @@ Three clusters:
       - Ubuntu 23.10
       - K3s
 
+![My-Lab-Setup-Arch](https://github.com/rk280392/my-lab-setup/blob/e5dba8b764f3218ef555532deeb8ff51646e916f/my-lab-setup.png)
+
 ## Tech Stack
 
 Continuous Delivery: ArgoCD
