@@ -27,6 +27,8 @@ Continuous Delivery: ArgoCD
 
 Ingress controller: Traefik
 
+Reverse Proxy / Load Balancer: Nginx
+
 Monitoring: Prometheus, Grafana, Thanos
 
 Logging: Loki (In progress)
