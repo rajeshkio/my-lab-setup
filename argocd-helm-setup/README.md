@@ -24,3 +24,17 @@ https://github.com/argoproj/argo-cd/blob/master/docs/faq.md
 For multi Rancher cluster see this : https://gist.github.com/janeczku/b16154194f7f03f772645303af8e9f80
 
 kubectl apply -f rancher-master/argocd-multi-rancher-cluster-secret.yaml
+
+metrics exporter issue on ARM64 https://github.com/argoproj/argo-helm/issues/2233
+
+Add anotations to appproject crd
+kh -n argo edit appproject // This will enable notifications for all the apps deployed in the project
+
+annotations:
+	notifications.argoproj.io/subscribe.on-deleted.slack: argocd-alerts
+	notifications.argoproj.io/subscribe.on-deployed.slack: argocd-alerts
+        notifications.argoproj.io/subscribe.on-health-degraded.slack: argocd-alerts
+	notifications.argoproj.io/subscribe.on-sync-failed.slack: argocd-alerts
+	notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: argocd-alerts
+	notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd-alerts
+
