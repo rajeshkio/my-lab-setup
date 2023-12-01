@@ -1,5 +1,6 @@
 receive:
   enabled: "true"
+  logLevel: debug
 existingObjstoreSecret: "thanos-obj-secret"
 metrics:
   enabled: "true"
