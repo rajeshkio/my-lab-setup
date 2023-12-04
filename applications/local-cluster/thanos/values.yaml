@@ -1,8 +1,8 @@
 receive:
   resources:
     limits:
-      memory: "512Mi"
-      cpu: "0.5"
+      memory: "2048Mi"
+      cpu: "1"
   enabled: "true"
   logLevel: debug
 existingObjstoreSecret: "thanos-obj-secret"
