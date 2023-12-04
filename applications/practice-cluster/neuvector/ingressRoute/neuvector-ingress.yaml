@@ -9,17 +9,6 @@ spec:
     replacement: /$1
 ---
 apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: stripprefix-api
-  namespace: cattle-neuvector-system
-spec:
-  replacePathRegex:
-    regex: /api:443\/*(.*)
-    replacement: /$1
----
-
-apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: nv-ingressroute
@@ -34,14 +23,12 @@ spec:
     - name: neuvector-service-webui
       port: 8443
       scheme: https
-  - match: Host(`nv.rajesh-kumar.in`) && PathPrefix(`/api`)
+  - match: Host(`nv.rajesh-kumar.in`) && PathPrefix(`/v1/*`)
     kind: Rule
     services:
     - name: neuvector-svc-controller-api
       port: 10443
       scheme: https
-    middlewares:
-      - name: stripprefix-api
   - match: Host(`nv.rajesh-kumar.in`) && PathPrefix(`/fedmanaged`)
     kind: Rule
     services:
