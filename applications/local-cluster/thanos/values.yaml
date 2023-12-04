@@ -1,43 +1,28 @@
 receive:
-  resources:
-    limits:
-      memory: "2048Mi"
-      cpu: "1"
   enabled: "true"
-  logLevel: debug
+  logLevel: info
+  tsdbRetention: 2d
 existingObjstoreSecret: "thanos-obj-secret"
-compactor:
-  resources:
-    limits:
-      memory: "512Mi"
-      cpu: "0.5"
 queryFrontend:
   resources:
     limits:
       memory: "512Mi"
       cpu: "0.5"
-
-  # Adjust query settings
 query:
   resources:
     limits:
       memory: "512Mi"
       cpu: "0.5"
-
-  # Adjust ruler settings
 ruler:
   resources:
     limits:
       memory: "512Mi"
       cpu: "0.5"
-
-  # Adjust store-gateway settings
 storeGateway:
   resources:
     limits:
       memory: "512Mi"
       cpu: "0.5"
-
 metrics:
   enabled: "true"
 prometheusRule:
