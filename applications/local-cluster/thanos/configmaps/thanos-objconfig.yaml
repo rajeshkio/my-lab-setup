@@ -4,12 +4,9 @@ data:
     type: "S3"
     config: 
       bucket: "{{ .BUCKET_NAME }}"
-      endpoint: "s3.ap-south-1.amazonaws.com"
-      region: "ap-south-1"
-      aws_sdk_auth: false
+      endpoint: "http://thanos-local-cluster-minio.monitoring.svc.cluster.local:9000"
       access_key: "{{ .ACCESS_KEY }}"
-      insecure: false
-      signature_version2: false
+      insecure: true
       secret_key: "{{ .SECRET_KEY }}"
 kind: ConfigMap
 metadata:
