@@ -8,6 +8,8 @@ queryFrontend:
     limits:
       memory: "512Mi"
       cpu: "0.5"
+minio:
+  enabled: true
 query:
   resources:
     limits:
