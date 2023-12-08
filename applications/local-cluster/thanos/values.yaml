@@ -10,6 +10,10 @@ queryFrontend:
       cpu: "0.5"
 minio:
   enabled: true
+  metrics:
+    serviceMonitor:
+      enabled: true
+      namespace: monitoring
 query:
   resources:
     limits:
