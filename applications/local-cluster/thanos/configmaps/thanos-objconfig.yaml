@@ -4,7 +4,7 @@ data:
     type: "S3"
     config: 
       bucket: "{{ .BUCKET_NAME }}"
-      endpoint: "http://thanos-local-cluster-minio.monitoring.svc.cluster.local:9000"
+      endpoint: "thanos-local-cluster-minio.monitoring.svc.cluster.local:9000"
       access_key: "{{ .ACCESS_KEY }}"
       insecure: true
       secret_key: "{{ .SECRET_KEY }}"
