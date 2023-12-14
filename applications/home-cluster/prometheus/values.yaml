@@ -31,6 +31,8 @@ prometheus:
         password:
           name: thanos-creds-secret
           key: thanos_receive_pass
-configSelector:
-  matchLabels:
-    alertmanagerConfig: alertmanagerconfig
+alertmanager:
+  logLevel: debug
+  configSelector:
+    matchLabels:
+      alertmanagerConfig: alertmanagerconfig
