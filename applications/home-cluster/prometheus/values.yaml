@@ -32,7 +32,7 @@ prometheus:
           name: thanos-creds-secret
           key: thanos_receive_pass
 alertmanager:
-  logLevel: error
+  logLevel: debug
   configSelector:
     matchLabels:
       alertmanagerConfig: alertmanagerconfig
