@@ -1,5 +1,6 @@
 clusterDomain: practice-cluster.local
 prometheus:
+  retention: 4d
   externalLabels:
     cluster: "practice-cluster"
   additionalScrapeConfigs:

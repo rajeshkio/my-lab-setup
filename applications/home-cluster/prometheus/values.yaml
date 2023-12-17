@@ -1,5 +1,6 @@
 clusterDomain: home-cluster.local
 prometheus:
+  retention: 4d
   externalLabels:
     cluster: "home-cluster"
   podMetadata:

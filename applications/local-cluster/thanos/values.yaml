@@ -1,4 +1,5 @@
 receive:
+  walCompression: true
   enabled: "true"
   logLevel: info
   tsdbRetention: 2d
