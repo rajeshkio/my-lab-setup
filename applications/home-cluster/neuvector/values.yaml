@@ -11,8 +11,27 @@ controller:
   federation:
     mastersvc:
       type: ClusterIP
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: NotIn
+                values:
+                  - arm64
 manager:
   svc:
     type: ClusterIP
   env:
     ssl: "true"
+enforcer:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: NotIn
+                values:
+                  - arm64
