@@ -1,0 +1,18 @@
+k3s:
+  enabled: "true"
+global:
+  cattle:
+    url: https://rancher.rajesh-kumar.in
+controller:
+  ranchersso:
+    enabled: "true"
+  apisvc:
+    type: ClusterIP
+  federation:
+    mastersvc:
+      type: ClusterIP
+manager:
+  svc:
+    type: ClusterIP
+  env:
+    ssl: "true"

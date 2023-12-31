@@ -16,6 +16,9 @@ spec:
         - cluster: practice-cluster
           app-name: neuvector
           namespace: cattle-neuvector-system
+        - cluster: home-cluster
+          app-name: neuvector
+          namespace: cattle-neuvector-system
   template:
     metadata:
       name: '{{app-name}}-{{cluster}}-ingress-route'

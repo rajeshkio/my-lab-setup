@@ -1,0 +1,3 @@
+exporter:
+  grafanaDashboard:
+    enabled: "true" 

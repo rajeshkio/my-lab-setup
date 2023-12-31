@@ -7,19 +7,7 @@ spec:
   generators:
   - list:
       elements:
-        - cluster: practice-cluster
-          app-name: prometheus
-          chart: kube-prometheus
-          targetRevision: 8.22.8
-          repoURL: 'https://charts.bitnami.com/bitnami'
-          namespace: monitoring
         - cluster: local-cluster
-          app-name: prometheus
-          chart: kube-prometheus
-          targetRevision: 8.22.8
-          repoURL: 'https://charts.bitnami.com/bitnami'
-          namespace: monitoring
-        - cluster: home-cluster
           app-name: prometheus
           chart: kube-prometheus
           targetRevision: 8.22.8
@@ -29,6 +17,30 @@ spec:
           app-name: thanos
           chart: thanos
           targetRevision: 12.16.2
+          repoURL: 'https://charts.bitnami.com/bitnami'
+          namespace: monitoring
+        - cluster: home-cluster
+          app-name: prometheus
+          chart: kube-prometheus
+          targetRevision: 8.22.8
+          repoURL: 'https://charts.bitnami.com/bitnami'
+          namespace: monitoring
+        - cluster: home-cluster
+          app-name: neuvector
+          chart: core
+          targetRevision: 2.6.6
+          repoURL: 'https://neuvector.github.io/neuvector-helm/'
+          namespace: cattle-neuvector-system
+        - cluster: home-cluster
+          app-name: nv-monitor
+          chart: monitor
+          targetRevision: 2.6.6
+          repoURL: 'https://neuvector.github.io/neuvector-helm/'
+          namespace: cattle-neuvector-system
+        - cluster: practice-cluster
+          app-name: prometheus
+          chart: kube-prometheus
+          targetRevision: 8.22.8
           repoURL: 'https://charts.bitnami.com/bitnami'
           namespace: monitoring
         - cluster: practice-cluster
