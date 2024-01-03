@@ -7,7 +7,7 @@ controller:
   ranchersso:
     enabled: "true"
   apisvc:
-    type: ClusterIP
+    type: NodePort
   federation:
     mastersvc:
       type: ClusterIP
