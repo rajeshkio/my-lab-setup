@@ -49,18 +49,6 @@ spec:
           targetRevision: 7.0.8
           repoURL: 'https://grafana.github.io/helm-charts'
           namespace: monitoring
-        - cluster: practice-cluster
-          app-name: neuvector
-          chart: core
-          targetRevision: 2.6.6
-          repoURL: 'https://neuvector.github.io/neuvector-helm/'
-          namespace: cattle-neuvector-system
-        - cluster: practice-cluster
-          app-name: nv-monitor
-          chart: monitor
-          targetRevision: 2.6.6
-          repoURL: 'https://neuvector.github.io/neuvector-helm/'
-          namespace: cattle-neuvector-system
   template:
     metadata:
       name: '{{app-name}}-{{cluster}}'

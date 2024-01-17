@@ -13,9 +13,6 @@ spec:
         - cluster: practice-cluster
           app-name: grafana
           namespace: monitoring
-        - cluster: practice-cluster
-          app-name: neuvector
-          namespace: cattle-neuvector-system
         - cluster: home-cluster
           app-name: neuvector
           namespace: cattle-neuvector-system
