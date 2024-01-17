@@ -12,7 +12,7 @@ prometheus:
           scrape_interval: 30s
           scrape_timeout: 10s
           static_configs:
-            - targets: ['neuvector-prometheus-exporter.cattle-neuvector-system.svc.cluster.local:8068']
+            - targets: ['neuvector-prometheus-exporter.cattle-neuvector-system.svc.cluster.local:8068', 'prometheus-home-cluster-kube-state-metrics.monitoring.svc.cluster.local:8080']
               labels:
                 cluster: 'home-cluster'
   remoteWrite:

@@ -2,6 +2,18 @@ clusterDomain: local-cluster.local
 prometheus:
   externalLabels:
     cluster: "local-cluster"
+  additionalScrapeConfigs:
+    enabled: true
+    type: internal
+    internal:
+      jobList:
+        - job_name: 'local-cluster'
+          scrape_interval: 30s
+          scrape_timeout: 10s
+          static_configs:
+            - targets: ['prometheus-local-cluster-kube-state-metrics.monitoring.svc.cluster.local:8080']
+              labels:
+                cluster: 'local-cluster'
   remoteWrite:
     - url: https://thanos.rajesh-kumar.in/api/v1/receive
       basicAuth:
