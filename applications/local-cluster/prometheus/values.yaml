@@ -1,15 +1,7 @@
 clusterDomain: local-cluster.local
 prometheus:
-  retention: 4d
   externalLabels:
     cluster: "local-cluster"
-  additionalScrapeConfigs:
-    enabled: true
-    type: external
-    external:
-      name: "nginx-exporter"
-      key: "prometheus-nginx.yaml"
-
   remoteWrite:
     - url: https://thanos.rajesh-kumar.in/api/v1/receive
       basicAuth:
@@ -19,6 +11,7 @@ prometheus:
         password:
           name: thanos-creds-secret
           key: thanos_receive_pass
-configSelector:
-  matchLabels:
-    alertmanagerConfig: alertmanagerconfig
+alertmanager:
+  configSelector:
+    matchLabels:
+      alertmanagerConfig: alertmanagerconfig

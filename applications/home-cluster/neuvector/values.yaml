@@ -25,13 +25,3 @@ manager:
     type: ClusterIP
   env:
     ssl: "true"
-enforcer:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: kubernetes.io/arch
-                operator: NotIn
-                values:
-                  - arm64

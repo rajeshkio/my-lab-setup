@@ -7,18 +7,18 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`rajesh-homeserver.ddns.net`)
+  - match: Host(`argo.rajesh-kumar.in`)
     kind: Rule
     priority: 10
     services:
     - name: argo-argocd-server
       port: http
   - kind: Rule
-    match: Host(`rajesh-homeserver.ddns.net`) && Headers(`Content-Type`, `application/grpc`)
+    match: Host(`argo.rajesh-kumar.in`) && Headers(`Content-Type`, `application/grpc`)
     priority: 11
     services:
-      - name: argocd-server
+      - name: argo-argocd-server
         port: 80
         scheme: h2c
   tls:
-    secretName: rajesh-homeserver 
+    secretName: rancher-tls-cert 

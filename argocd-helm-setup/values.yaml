@@ -5,7 +5,7 @@ crds:
   install: true
 configs:
   cm:
-    url: https://rajesh-homeserver.ddns.net
+    url: https://argo.rajesh-kumar.in
     dex.config: |
       connectors:
       - type: github

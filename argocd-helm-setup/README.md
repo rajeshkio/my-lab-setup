@@ -6,9 +6,9 @@
 
 $ kubectl create ns argo
 
-$ kubectl apply -f argocd-helm-setup/externalSecretDexConfig.yaml -f argocd-helm-setup/externalSecretSlackConfig.yaml -f argocd-helm-setup/externalSecretWebhook.yaml -f argo-ingress.yaml
+$ kubectl apply -f argocd-helm-setup/externalSecretDexConfig.yaml -f argocd-helm-setup/externalSecretSlackConfig.yaml -f argocd-helm-setup/externalSecretWebhook.yaml -f argocd-helm-setup/argo-ingress.yaml
 
-$ helm upgrade --install argo -n argo argo/argo-cd --values argocd-helm-setup/argocd/values.yaml
+$ helm upgrade --install argo -n argo argo/argo-cd --values argocd-helm-setup/values.yaml
 
 $ kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d | xargs
 

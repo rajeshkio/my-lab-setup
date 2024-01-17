@@ -3,16 +3,24 @@ prometheus:
   retention: 4d
   externalLabels:
     cluster: "practice-cluster"
+  podMetadata:
+    annotations: 
+      notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-deleted.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-deployed.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-health-degraded.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-sync-failed.slack: argocd-alerts
+      notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: argocd-alerts
   additionalScrapeConfigs:
     enabled: true
     type: internal
     internal:
       jobList:
-        - job_name: 'neuvector-practice-cluster'
+        - job_name: 'argocd-practice-cluster'
           scrape_interval: 30s
           scrape_timeout: 10s
           static_configs:
-            - targets: ['neuvector-prometheus-exporter.cattle-neuvector-system.svc.cluster.local:8068']
+            - targets: ['argo-argocd-server-metrics.argo.svc.cluster.local:8083','argo-argocd-application-controller-metrics.argo.svc.cluster.local:8082','argo-argocd-notifications-controller-metrics.argo.svc.cluster.local:9001','argo-argocd-server-metrics.argo.svc.cluster.local:8083','argo-argocd-redis-metrics.argo.svc.cluster.local:9121']
               labels:
                 cluster: 'practice-cluster'
   remoteWrite:
