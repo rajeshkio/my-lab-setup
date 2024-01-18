@@ -49,12 +49,6 @@ spec:
           targetRevision: 8.23.4
           repoURL: 'https://charts.bitnami.com/bitnami'
           namespace: monitoring
-        - cluster: practice-cluster
-          app-name: grafana
-          chart: grafana
-          targetRevision: 7.2.1
-          repoURL: 'https://grafana.github.io/helm-charts'
-          namespace: monitoring
   template:
     metadata:
       name: '{{app-name}}-{{cluster}}'

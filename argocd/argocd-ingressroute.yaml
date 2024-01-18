@@ -10,9 +10,6 @@ spec:
         - cluster: local-cluster
           app-name: thanos
           namespace: monitoring
-        - cluster: practice-cluster
-          app-name: grafana
-          namespace: monitoring
         - cluster: home-cluster
           app-name: grafana
           namespace: monitoring
