@@ -39,5 +39,5 @@ spec:
     middlewares:
       - name: stripprefix
   tls:
-    secretName: rancher-tls-cert
+    secretName: rajesh-homeserver
 
