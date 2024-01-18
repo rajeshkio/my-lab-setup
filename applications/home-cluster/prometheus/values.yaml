@@ -1,4 +1,12 @@
 clusterDomain: home-cluster.local
+node-exporter:
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
 prometheus:
   retention: 4d
   externalLabels:
