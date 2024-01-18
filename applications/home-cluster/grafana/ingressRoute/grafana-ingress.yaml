@@ -6,7 +6,7 @@ metadata:
 spec:
   entryPoints:
     - web
-    - websecure
+      #- websecure
   routes:
   - match: Host(`grafana.rajesh-homeserver.ddns.net`)
     kind: Rule
@@ -14,6 +14,6 @@ spec:
     - name: grafana-home-cluster
       port: 80
       scheme: http
-  tls:
-    secretName: rajesh-homeserver
+        #  tls:
+        #  secretName: rajesh-homeserver
 
