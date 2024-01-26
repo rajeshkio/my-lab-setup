@@ -1,3 +1,6 @@
 exporter:
-  grafanaDashboard:
-    enabled: "true" 
+  enabled: true
+  enforcerStats:
+    enabled: "true"
+  ctrlSecretName: neuvector-prometheus-exporter-pod-secret
+
