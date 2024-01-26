@@ -46,3 +46,6 @@ datasources:
       basicAuthUser: $GF_DATASOURCES_BASIC_AUTH_USER
       secureJsonData:
         basicAuthPassword: $GF_DATASOURCES_BASIC_AUTH_PASSWORD
+persistence:
+  enabled: true
+  size: 30Gi
