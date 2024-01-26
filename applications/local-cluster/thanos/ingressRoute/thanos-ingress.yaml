@@ -34,3 +34,21 @@ spec:
     - name: thanos-receive-auth
   tls:
     secretName: rancher-tls-cert
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: minio-ingressroute
+  namespace: monitoring
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`minio.rajesh-kumar.in`)
+    kind: Rule
+    services:
+    - name: thanos-local-cluster-minio
+      port: 9001
+  tls:
+    secretName: rancher-tls-cert
