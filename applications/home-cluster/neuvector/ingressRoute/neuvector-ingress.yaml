@@ -23,7 +23,7 @@ spec:
     - name: neuvector-service-webui
       port: 8443
       scheme: https
-  - match: Host(`rajesh-homeserver.ddns.net`) && PathPrefix(`/v1/*`)
+  - match: Host(`rajesh-homeserver.ddns.net`) && PathPrefix(`/v1/*`) || PathPrefix(`/v2/*`))
     kind: Rule
     services:
     - name: neuvector-svc-controller-api

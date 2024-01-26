@@ -1,0 +1,71 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-rancher-wildcard
+  namespace: cert-manager
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    #    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: rk90229@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-route53-dns-private
+    solvers:
+    - selector:
+        dnsZones:
+        - "*.rajesh-kumar.in"
+      dns01:
+        route53:
+          region: ap-south-1
+          accessKeyIDSecretRef:
+            name: aws-s3-secret
+            key: access-key-id
+          secretAccessKeySecretRef:
+            name: aws-s3-secret
+            key: secret-key-id
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: rancher-ingress-cert
+  namespace: cert-manager
+spec:
+  secretName: rancher-tls-cert
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-rancher-wildcard
+  commonName: "*.rajesh-kumar.in"
+  dnsNames:
+  - "*.rajesh-kumar.in"
+
+---
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: TLSStore
+#metadata:
+#  name: default
+#  namespace: cattle-system
+#spec:
+#  defaultCertificate:
+#    secretName: rancher-tls-cert-1
+#
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: local-rancher-ingressroute
+  namespace: cattle-system
+spec:
+  entryPoints:
+    - websecure
+    - web
+  routes:
+  - match: Host(`rancher.rajesh-kumar.in`)
+    kind: Rule
+    services:
+    - name: rancher
+      port: 80
+      scheme: http
+  tls:
+    secretName: rancher-tls-cert
