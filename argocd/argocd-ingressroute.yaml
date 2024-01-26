@@ -18,7 +18,7 @@ spec:
           namespace: cattle-neuvector-system
   template:
     metadata:
-      name: '{{app-name}}-{{cluster}}-ingress-route'
+      name: '{{cluster}}-{{app-name}}-ingressroute'
       namespace: argo
     spec:
       project: default

@@ -51,7 +51,7 @@ spec:
           namespace: monitoring
   template:
     metadata:
-      name: '{{app-name}}-{{cluster}}'
+      name: '{{cluster}}-{{app-name}}'
       namespace: argo
     spec:
       project: default
