@@ -11,7 +11,7 @@ prometheus:
           scrape_interval: 30s
           scrape_timeout: 10s
           static_configs:
-            - targets: ['prometheus-local-cluster-kube-state-metrics.monitoring.svc.cluster.local:8080']
+            - targets: ['local-cluster-prometheus-kube-state-metrics.monitoring.svc.cluster.local:8080']
               labels:
                 cluster: 'local-cluster'
   remoteWrite:
