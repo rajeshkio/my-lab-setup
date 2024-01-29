@@ -93,3 +93,13 @@ services:
         keywords: "Argocd application"
         url: "https://argo.rajesh-kumar.in/"
         target: "_blank" # optional html a tag target attribute
+  - name: "Local Cluster Applications"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Vault"
+        logo: "assets/tools/sample.png"
+        subtitle: "Vault app"
+        tag: "app"
+        keywords: "Vault application"
+        url: "https://vault.rajesh-kumar.in/"
+        target: "_blank" # optional html a tag target attribute
