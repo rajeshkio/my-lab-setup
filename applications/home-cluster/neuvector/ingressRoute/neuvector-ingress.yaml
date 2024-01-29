@@ -17,19 +17,19 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`nv.rajesh-homeserver.ddns.net`)
+  - match: Host(`nv-local.rajesh-kumar.in`)
     kind: Rule
     services:
     - name: neuvector-service-webui
       port: 8443
       scheme: https
-  - match: Host(`nv.rajesh-homeserver.ddns.net`) && PathPrefix(`/v1/*`) || PathPrefix(`/v2/*`))
+  - match: Host(`nv-local.rajesh-kumar.in`) && PathPrefix(`/v1/*`) || PathPrefix(`/v2/*`))
     kind: Rule
     services:
     - name: neuvector-svc-controller-api
       port: 10443
       scheme: https
-  - match: Host(`nv.rajesh-homeserver.ddns.net`) && PathPrefix(`/fedmanaged`)
+  - match: Host(`nv-local.rajesh-kumar.in`) && PathPrefix(`/fedmanaged`)
     kind: Rule
     services:
       - name: neuvector-svc-controller-fed-master
@@ -39,5 +39,5 @@ spec:
     middlewares:
       - name: stripprefix
   tls:
-    secretName: rajesh-homeserver
+    secretName: rancher-tls-cert
 
