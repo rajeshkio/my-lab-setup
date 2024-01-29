@@ -17,13 +17,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`nv-local.rajesh-kumar.in`)
-    kind: Rule
-    services:
-    - name: neuvector-service-webui
-      port: 8443
-      scheme: https
-  - match: Host(`nv-local.rajesh-kumar.in`) && (PathPrefix(`/v1/*`) || PathPrefix(`/v2/*`))
+  - match: Host(`nv-local.rajesh-kumar.in`) && (PathPrefix(`/v2/`) || PathPrefix(`/v1/`))
     kind: Rule
     services:
     - name: neuvector-svc-controller-api
@@ -38,6 +32,12 @@ spec:
         scheme: https
     middlewares:
       - name: stripprefix
+  - match: Host(`nv-local.rajesh-kumar.in`)
+    kind: Rule
+    services:
+    - name: neuvector-service-webui
+      port: 8443
+      scheme: https
   tls:
     secretName: rancher-tls-cert
 
