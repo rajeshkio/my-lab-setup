@@ -83,3 +83,13 @@ services:
         subtitle: "Grafana application"
         tag: "app"
         url: "https://grafana-local.rajesh-kumar.in/"
+  - name: "Practice Cluster Applications"
+    icon: "fas fa-cloud"
+    items:
+      - name: "ArgoCD"
+        logo: "assets/tools/sample.png"
+        subtitle: "ArgoCD app"
+        tag: "app"
+        keywords: "Argocd application"
+        url: "https://argo.rajesh-kumar.in/"
+        target: "_blank" # optional html a tag target attribute
