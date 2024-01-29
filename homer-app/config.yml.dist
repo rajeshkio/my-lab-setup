@@ -103,3 +103,24 @@ services:
         keywords: "Vault application"
         url: "https://vault.rajesh-kumar.in/"
         target: "_blank" # optional html a tag target attribute
+      - name: "Minio"
+        logo: "assets/tools/sample.png"
+        subtitle: "Minio app"
+        tag: "app"
+        keywords: "Minio application"
+        url: "https://minio.rajesh-kumar.in/"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Thanos"
+        logo: "assets/tools/sample.png"
+        subtitle: "Thanos app"
+        tag: "app"
+        keywords: "Thanos application"
+        url: "https://thanos.rajesh-kumar.in/"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Rancher"
+        logo: "assets/tools/sample.png"
+        subtitle: "Rancher app"
+        tag: "app"
+        keywords: "Rancher application"
+        url: "https://rancher.rajesh-kumar.in/"
+        target: "_blank" # optional html a tag target attribute
