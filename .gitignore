@@ -10,3 +10,4 @@ prometheus-nginx.yaml
 rancher-master/wildcard-tls-secret.yaml
 rancher-master/vaults/vault-tokens
 rancher-master/vaults/vaultTokenSecret.yaml
+rancher-master/route-53-config.txt

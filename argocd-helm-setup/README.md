@@ -16,7 +16,7 @@ https://github.com/argoproj/argo-cd/blob/master/docs/faq.md
 
 ### Enable Auth0 with github
 
-1 - Create github oAuth app and get clientId and secret. ( Hint: settings --> Developer options --> oAuth)
+1 - Create github oAuth app and get clientId and secret. ( Hint: settings --> Developer options --> oAuth). I have created an organisation and created oAuth from the organisation settings.
 
 2 - Create a secret named `argocd-secret` in `argo` namespace.
 

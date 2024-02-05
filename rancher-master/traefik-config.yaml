@@ -1,0 +1,17 @@
+##
+# Required for ssl to work from traefik to pod else traefik won't be able to validate the self signed certificate of deployment and will reject the connection
+#
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    additionalArguments:
+    - "--serversTransport.insecureSkipVerify=true"
+    deployment:
+      kind: DaemonSet
+    logs:
+      access:
+        enabled: true
