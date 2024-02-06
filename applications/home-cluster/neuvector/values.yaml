@@ -11,6 +11,15 @@ controller:
   federation:
     mastersvc:
       type: ClusterIP
+  env:
+    - name: CTRL_EN_ICMP_POLICY
+      value: "1"
+    - name: CTRL_PERSIST_CONFIG
+      value: "1"
+enforcer:
+  env:
+    - name: NV_SYSTEM_GROUPS
+      value: "cattle-system;cattle-fleet-system"
 manager:
   svc:
     type: ClusterIP
