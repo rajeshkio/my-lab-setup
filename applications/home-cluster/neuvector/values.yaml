@@ -21,7 +21,7 @@ controller:
 enforcer:
   env:
     - name: NV_SYSTEM_GROUPS
-      value: "cattle-system;cattle-fleet-system"
+      value: "*cattle-cluster*;*fleet-agent*"
 manager:
   svc:
     type: ClusterIP
