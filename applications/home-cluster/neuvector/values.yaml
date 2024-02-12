@@ -17,7 +17,7 @@ controller:
   pvc:
     enabled: true
     storageClass: local-path
-    capacity: 5G
+    capacity: 5Gi
 enforcer:
   env:
     - name: NV_SYSTEM_GROUPS
