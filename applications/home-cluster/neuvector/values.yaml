@@ -14,8 +14,10 @@ controller:
   env:
     - name: CTRL_EN_ICMP_POLICY
       value: "1"
-    - name: CTRL_PERSIST_CONFIG
-      value: "1"
+  pvc:
+    enabled: true
+    storageClass: local-path
+    capacity: 5G
 enforcer:
   env:
     - name: NV_SYSTEM_GROUPS

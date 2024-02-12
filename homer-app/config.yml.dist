@@ -83,6 +83,7 @@ services:
         subtitle: "Grafana application"
         tag: "app"
         url: "https://grafana-local.rajesh-kumar.in/"
+        target: "_blank" # optional html a tag target attribute
   - name: "Practice Cluster Applications"
     icon: "fas fa-cloud"
     items:
