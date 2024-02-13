@@ -7,6 +7,4 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: /mnt/data
+  storageClassName: longhorn
