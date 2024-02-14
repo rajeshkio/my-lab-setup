@@ -2,9 +2,12 @@ apiVersion: v1
 data:
   userinitcfg.yaml: |
     users:
-    - Fullname: admin
+    - Fullname: "{{ .CTRL_USERNAME }}"
       Password: "{{ .CTRL_PASSWORD }}"
-      Role: "{{ .CTRL_USERNAME }}"
+      Role: admin
+    - Fullname: "userone"
+      Password: "{{ .USERONE_PASS }}"
+      Role: admin
 kind: ConfigMap
 metadata:
   name: neuvector-init
