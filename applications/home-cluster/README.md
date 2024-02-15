@@ -14,6 +14,6 @@ I solved them by below process:
 
  - I already had certificates for my public domain. Just needed to create secret with those certificate in application specific namespaces/
 
- - Router doesn't support NAT Hairpinning so I had to use portforwarding from a random port like 12443 to 443 to internal server IP, to access the service from outside.
+ - Disabled https access through WAN and LAN from router security --> access control settings. After this 443 port forward is working
 
  - Additionally I added domains like grafana.rajesh-kumar.in into router DNS so that I can resolve them locally and get the access. To access it from the outside, I had to use domain:port.
