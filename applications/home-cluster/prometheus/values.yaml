@@ -1,10 +1,10 @@
 clusterDomain: home-cluster.local
 operator:
   containerSecurityContext:
-    seLinuxOptions: nil
-  prometheusConfigReloade:
+    seLinuxOptions: {}
+  prometheusConfigReloader:
     containerSecurityContext:
-      seLinuxOptions: nil
+      seLinuxOptions: {}
 node-exporter:
   tolerations:
     - key: "node-role.kubernetes.io/control-plane"
@@ -16,7 +16,7 @@ node-exporter:
 prometheus:
   retention: 4d
   containerSecurityContext:
-    seLinuxOptions: nil
+    seLinuxOptions: {}
   externalLabels:
     cluster: "home-cluster"
   additionalScrapeConfigs:
@@ -43,10 +43,10 @@ prometheus:
 alertmanager:
   logLevel: debug
   containerSecurityContext:
-    seLinuxOptions: nil
+    seLinuxOptions: {}
   configSelector:
     matchLabels:
       alertmanagerConfig: alertmanagerconfig
 blackboxExporter:
   containerSecurityContext:
-    seLinuxOptions: nil
+    seLinuxOptions: {}

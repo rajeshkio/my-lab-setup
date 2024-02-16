@@ -1,5 +1,12 @@
 clusterDomain: local-cluster.local
+  containerSecurityContext:
+    seLinuxOptions: {}
+  prometheusConfigReloader:
+    containerSecurityContext:
+      seLinuxOptions: {}
 prometheus:
+  containerSecurityContext:
+    seLinuxOptions: {}
   externalLabels:
     cluster: "local-cluster"
   additionalScrapeConfigs:
@@ -24,6 +31,11 @@ prometheus:
           name: thanos-creds-secret
           key: thanos_receive_pass
 alertmanager:
+  containerSecurityContext:
+    seLinuxOptions: {}
   configSelector:
     matchLabels:
       alertmanagerConfig: alertmanagerconfig
+blackboxExporter:
+  containerSecurityContext:
+    seLinuxOptions: {}

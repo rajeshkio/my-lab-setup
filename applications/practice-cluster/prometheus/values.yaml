@@ -1,6 +1,14 @@
 clusterDomain: practice-cluster.local
+operator:
+  containerSecurityContext:
+    seLinuxOptions: {}
+  prometheusConfigReloader:
+    containerSecurityContext:
+      seLinuxOptions: {}
 prometheus:
   retention: 4d
+  containerSecurityContext:
+    seLinuxOptions: {}
   externalLabels:
     cluster: "practice-cluster"
   podMetadata:
@@ -36,3 +44,13 @@ prometheus:
 configSelector:
   matchLabels:
     alertmanagerConfig: alertmanagerconfig
+alertmanager:
+  logLevel: debug
+  containerSecurityContext:
+    seLinuxOptions: {}
+  configSelector:
+    matchLabels:
+      alertmanagerConfig: alertmanagerconfig
+blackboxExporter:
+  containerSecurityContext:
+    seLinuxOptions: {}
