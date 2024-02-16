@@ -1,4 +1,10 @@
 clusterDomain: home-cluster.local
+operator:
+  containerSecurityContext:
+    seLinuxOptions: nil
+  prometheusConfigReloade:
+    containerSecurityContext:
+      seLinuxOptions: nil
 node-exporter:
   tolerations:
     - key: "node-role.kubernetes.io/control-plane"
@@ -9,6 +15,8 @@ node-exporter:
       effect: "NoSchedule"
 prometheus:
   retention: 4d
+  containerSecurityContext:
+    seLinuxOptions: nil
   externalLabels:
     cluster: "home-cluster"
   additionalScrapeConfigs:
@@ -34,6 +42,11 @@ prometheus:
           key: thanos_receive_pass
 alertmanager:
   logLevel: debug
+  containerSecurityContext:
+    seLinuxOptions: nil
   configSelector:
     matchLabels:
       alertmanagerConfig: alertmanagerconfig
+blackboxExporter:
+  containerSecurityContext:
+    seLinuxOptions: nil
