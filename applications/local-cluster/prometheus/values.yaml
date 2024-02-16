@@ -1,4 +1,5 @@
 clusterDomain: local-cluster.local
+operator:
   containerSecurityContext:
     seLinuxOptions: {}
   prometheusConfigReloader:
