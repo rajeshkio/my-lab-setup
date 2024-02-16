@@ -9,13 +9,16 @@ spec:
   routes:
   - match: Host(`argo.rajesh-kumar.in`)
     kind: Rule
-    priority: 10
     services:
     - name: argo-argocd-server
       port: http
+  - match: Host(`argo.rajesh-kumar.in`) && PathPrefix(`/api/webhook`)
+    kind: Rule
+    services:
+    - name: argo-argocd-applicationset-controller
+      port: 7000
   - kind: Rule
-    match: Host(`argo.rajesh-kumar.in`) && Headers(`Content-Type`, `application/grpc`)
-    priority: 11
+    match: Host(`argo-grpc.rajesh-kumar.in`) && Headers(`Content-Type`, `application/grpc`)
     services:
       - name: argo-argocd-server
         port: 80
