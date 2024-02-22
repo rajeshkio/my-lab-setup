@@ -15,5 +15,5 @@ spec:
       port: 80
       scheme: http
   tls:
-    secretName: rajesh-homeserver
+    secretName: rancher-tls-cert
 
