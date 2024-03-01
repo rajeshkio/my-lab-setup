@@ -18,6 +18,7 @@ controller:
     enabled: true
     storageClass: longhorn
     capacity: 5Gi
+  affinity: []
 enforcer:
   env:
     - name: NV_SYSTEM_GROUPS
