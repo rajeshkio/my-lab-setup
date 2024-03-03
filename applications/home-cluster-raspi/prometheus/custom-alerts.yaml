@@ -1,0 +1,46 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: custom-alerts
+  namespace: monitoring
+spec:
+  groups:
+  - name: example
+    rules:
+    - alert: TestAlert
+      expr: vector(1)
+      for: 1m
+      labels:
+        job: test-critical
+        severity: critical
+---
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: test-alert-rule
+  namespace: monitoring
+spec:
+  groups:
+  - name: test-alert-group
+    rules:
+    - alert: TestAlert
+      expr: vector(1)
+      labels:
+        severity: warning
+        job: test-warning
+      annotations:
+        summary: "This is a test alert"
+        description: "This alert is triggered for testing purposes."
+---
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: prometheus-example-rules
+spec:
+  groups:
+  - name: ./example.rules
+    rules:
+    - alert: ExampleAlert
+      expr: vector(1)

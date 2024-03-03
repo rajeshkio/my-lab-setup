@@ -16,7 +16,6 @@ controller:
       value: "1"
   pvc:
     enabled: true
-    storageClass: longhorn
     capacity: 5Gi
   affinity: []
 enforcer:

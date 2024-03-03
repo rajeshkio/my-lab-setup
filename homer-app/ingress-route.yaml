@@ -11,7 +11,7 @@ spec:
   - match: Host(`homer.rajesh-kumar.in`)
     kind: Rule
     services:
-    - name: homer 
+    - name: homer-app
       port: 8080
       scheme: http
   tls:

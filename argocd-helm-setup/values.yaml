@@ -19,7 +19,7 @@ configs:
   params:
     server.insecure: true
   secret:
-    githubSecret: $webhook-secret:github_webhook_secret
+    githubSecret: webhook-secret
   rbac:
     create: true
     policy.csv: |
