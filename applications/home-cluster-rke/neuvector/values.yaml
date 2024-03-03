@@ -4,6 +4,7 @@ global:
   cattle:
     url: https://rancher.rajesh-kumar.in
 controller:
+  replicas: 1
   ranchersso:
     enabled: "true"
   apisvc:
@@ -27,3 +28,5 @@ manager:
     type: ClusterIP
   env:
     ssl: "true"
+scanner:
+  replicas: 1
