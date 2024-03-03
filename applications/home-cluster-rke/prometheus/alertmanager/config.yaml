@@ -1,0 +1,32 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: alertmanagerconfig
+  namespace: monitoring
+  labels:
+    alertmanagerConfig: alertmanagerconfig
+spec:
+  receivers:
+  - name: test-smtp
+    #    emailConfigs:
+    #    - authPassword:
+    #        name: smtp-pass 
+    #        key: test-app-password
+    #      authUsername: rk90229@gmail.com
+    #      from: rk90229@gmail.com
+    #      requireTLS: true
+    #      sendResolved: true
+    #      smarthost: smtp.gmail.com:587
+    #      to: srk280392@gmail.com
+    slackConfigs:
+    - apiURL: 
+        name: slack-webhook
+        key: webhook 
+      channel: argocd-alerts
+      sendResolved: true
+  route:
+    groupBy: ['alertname']
+    groupInterval: 30s
+    groupWait: 1m
+    receiver: test-smtp
+    repeatInterval: 2m

@@ -10,10 +10,10 @@ spec:
         - cluster: local-cluster
           app-name: thanos
           namespace: monitoring
-        - cluster: home-cluster
+        - cluster: home-cluster-raspi
           app-name: grafana
           namespace: monitoring
-        - cluster: home-cluster
+        - cluster: home-cluster-rke
           app-name: neuvector
           namespace: cattle-neuvector-system
   template:

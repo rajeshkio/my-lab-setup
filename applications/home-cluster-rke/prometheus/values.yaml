@@ -1,0 +1,52 @@
+clusterDomain: home-cluster.local
+operator:
+  containerSecurityContext:
+    seLinuxOptions: {}
+  prometheusConfigReloader:
+    containerSecurityContext:
+      seLinuxOptions: {}
+node-exporter:
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
+prometheus:
+  retention: 4d
+  containerSecurityContext:
+    seLinuxOptions: {}
+  externalLabels:
+    cluster: "home-cluster"
+  additionalScrapeConfigs:
+    enabled: true
+    type: internal
+    internal:
+      jobList:
+        - job_name: 'neuvector-home-cluster'
+          scrape_interval: 30s
+          scrape_timeout: 10s
+          static_configs:
+            - targets: ['neuvector-prometheus-exporter.cattle-neuvector-system.svc.cluster.local:8068', 'prometheus-home-cluster-kube-state-metrics.monitoring.svc.cluster.local:8080']
+              labels:
+                cluster: 'home-cluster'
+  remoteWrite:
+    - url: https://thanos.rajesh-kumar.in/api/v1/receive
+      basicAuth:
+        username:
+          name: thanos-creds-secret
+          key: thanos_receive_user
+        password:
+          name: thanos-creds-secret
+          key: thanos_receive_pass
+alertmanager:
+  logLevel: debug
+  containerSecurityContext:
+    seLinuxOptions: {}
+  configSelector:
+    matchLabels:
+      alertmanagerConfig: alertmanagerconfig
+blackboxExporter:
+  containerSecurityContext:
+    seLinuxOptions: {}

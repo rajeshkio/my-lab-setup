@@ -19,30 +19,36 @@ spec:
           targetRevision: 13.0.0
           repoURL: 'https://charts.bitnami.com/bitnami'
           namespace: monitoring
-        - cluster: home-cluster
-          app-name: prometheus
-          chart: kube-prometheus
-          targetRevision: 8.26.0
-          repoURL: 'https://charts.bitnami.com/bitnami'
-          namespace: monitoring
-        - cluster: home-cluster
-          app-name: neuvector
-          chart: core
-          targetRevision: 2.7.2
-          repoURL: 'https://neuvector.github.io/neuvector-helm/'
-          namespace: cattle-neuvector-system
-        - cluster: home-cluster
-          app-name: nv-monitor
-          chart: monitor
-          targetRevision: 2.7.2
-          repoURL: 'https://neuvector.github.io/neuvector-helm/'
-          namespace: cattle-neuvector-system
-        - cluster: home-cluster
+        - cluster: home-cluster-raspi
           app-name: grafana
           chart: grafana
           targetRevision: 7.3.0
           repoURL: 'https://grafana.github.io/helm-charts'
           namespace: monitoring
+        - cluster: home-cluster-raspi
+          app-name: prometheus
+          chart: kube-prometheus
+          targetRevision: 8.26.0
+          repoURL: 'https://charts.bitnami.com/bitnami'
+          namespace: monitoring
+        - cluster: home-cluster-rke
+          app-name: prometheus
+          chart: kube-prometheus
+          targetRevision: 8.26.0
+          repoURL: 'https://charts.bitnami.com/bitnami'
+          namespace: monitoring
+        - cluster: home-cluster-rke
+          app-name: neuvector
+          chart: core
+          targetRevision: 2.7.2
+          repoURL: 'https://neuvector.github.io/neuvector-helm/'
+          namespace: cattle-neuvector-system
+        - cluster: home-cluster-rke
+          app-name: nv-monitor
+          chart: monitor
+          targetRevision: 2.7.2
+          repoURL: 'https://neuvector.github.io/neuvector-helm/'
+          namespace: cattle-neuvector-system
         - cluster: practice-cluster
           app-name: prometheus
           chart: kube-prometheus
