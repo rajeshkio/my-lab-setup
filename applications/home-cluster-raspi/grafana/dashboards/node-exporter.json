@@ -23687,8 +23687,8 @@
       {
         "current": {
           "selected": false,
-          "text": "home-cluster",
-          "value": "home-cluster"
+          "text": "home-cluster-rke",
+          "value": "home-cluster-rke"
         },
         "datasource": {
           "type": "prometheus",

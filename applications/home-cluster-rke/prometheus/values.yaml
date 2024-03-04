@@ -1,4 +1,4 @@
-clusterDomain: home-cluster.local
+clusterDomain: home-cluster-rke.local
 operator:
   containerSecurityContext:
     seLinuxOptions: {}
@@ -18,19 +18,19 @@ prometheus:
   containerSecurityContext:
     seLinuxOptions: {}
   externalLabels:
-    cluster: "home-cluster"
+    cluster: "home-cluster-rke"
   additionalScrapeConfigs:
     enabled: true
     type: internal
     internal:
       jobList:
-        - job_name: 'neuvector-home-cluster'
+        - job_name: 'neuvector-home-cluster-rke'
           scrape_interval: 30s
           scrape_timeout: 10s
           static_configs:
-            - targets: ['neuvector-prometheus-exporter.cattle-neuvector-system.svc.cluster.local:8068', 'prometheus-home-cluster-kube-state-metrics.monitoring.svc.cluster.local:8080']
+            - targets: ['neuvector-prometheus-exporter.cattle-neuvector-system.svc.cluster.local:8068', 'home-cluster-rke-prometheus-kube-state-metrics.monitoring.svc.cluster.local:8080']
               labels:
-                cluster: 'home-cluster'
+                cluster: 'home-cluster-rke'
   remoteWrite:
     - url: https://thanos.rajesh-kumar.in/api/v1/receive
       basicAuth:
