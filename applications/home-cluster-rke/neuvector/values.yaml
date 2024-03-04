@@ -1,3 +1,4 @@
+imagePullSecrets: regcred
 k3s:
   enabled: "true"
 global:
