@@ -28,5 +28,6 @@ manager:
     type: ClusterIP
   env:
     ssl: "true"
-scanner:
-  replicas: 1
+cve:
+  scanner:
+    replicas: 1

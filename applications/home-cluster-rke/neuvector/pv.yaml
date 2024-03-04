@@ -7,3 +7,4 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
+  storageClassName: longhorn
