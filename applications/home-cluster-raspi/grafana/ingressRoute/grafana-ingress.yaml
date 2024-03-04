@@ -11,7 +11,7 @@ spec:
   - match: Host(`grafana-local.rajesh-kumar.in`)
     kind: Rule
     services:
-    - name: home-cluster-grafana
+    - name: home-cluster-raspi-grafana
       port: 80
       scheme: http
   tls:
