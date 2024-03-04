@@ -16,3 +16,4 @@ rancher-master/route-53_accessKeys.csv
 .nv-api-keys.txt
 argocd-helm-setup/.github-webhook
 nginx-reverse-proxy/rajesh-kumar.in.conf
+kubeconfigs

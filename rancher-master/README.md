@@ -48,3 +48,77 @@ Please ensure and update the secrets with appropriate values. I have used dummy 
       $ kubectl apply -f vaults/vaultTokenSecret.yaml
       $ kubectl apply -f ingresses/vault-ingress.yaml
       $ kubectl apply -f clusterSecretStore.yaml
+
+
+NOTE: rancher-master/rancher-tls-secret.yaml needs to be created for each namespace and on each cluster where ingressroute is created. This file isn't part of git repo for security issues.
+
+
+Adding New remote cluster
+
+1 - Deploy kubernetes using one of k3s, rke2 or rke
+
+RKE: 
+
+https://rke.docs.rancher.com/installation
+
+Use rancher-master/cluster.yml to deploy an rke cluster make changes as required, or you can run rke config to create a cluster.yaml
+
+K3s:
+
+https://docs.k3s.io/installation/configuration#configuration-with-install-script
+```SHELL
+curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.26.7+k3s1 INSTALL_K3S_VERSION=v1.26.7+k3s1 INSTALL_K3S_EXEC="server" sh -
+```
+2 - Ensure traefik is deployed. If not deploy it. k3s deploys it by default while rke doesn't in the case deploy traefik.
+
+`For RKE:`
+```SHELL
+helm upgrade --install traefik traefik/traefik -n kube-system -f applications/home-cluster-rke/traefik-config.yaml
+```
+`For k3s:`
+SSh to the master node and create /var/lib/rancher/k3s/server/manifests/traefik-config.yaml
+
+```SHELL
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    additionalArguments:
+    - "--serversTransport.insecureSkipVerify=true"
+    deployment:
+      kind: DaemonSet
+    logs:
+      access:
+        enabled: true
+```
+
+3 - Deploy external-secret
+
+```SHELL 
+ helm install external-secrets external-secrets/external-secrets -n external-secrets --create-namespace
+```
+
+4 - Create vault secret, clustersecretstore
+ 
+```SHELL 
+kubectl apply -f rancher-master/vaults/vaultTokenSecret.yaml
+kubectl apply -f rancher-master/clusterSecretStore.yaml
+ ```
+
+5 - Create rancher-tls-secret in app namespaces
+
+ ```SHELL
+ kubectl -n app-ns apply -f rancher-master/rancher-tls-secret.yaml
+ ```
+6 -  Expose application with ingressroute and use rancher-tls-secret for tls secret.
+
+7 - Ensure everything is working
+
+```SHELL
+kubectl get clustersecretstore
+kubectl get externalsecret -A
+kubectl get ingressroute -A
+```
