@@ -4,6 +4,8 @@ global:
   cattle:
     url: https://rancher.rajesh-kumar.in
 controller:
+  nodeSelector: 
+    kubernetes.io/hostname: rajesh-sles
   replicas: 1
   ranchersso:
     enabled: "true"
