@@ -40,13 +40,13 @@ spec:
         - cluster: home-cluster-rke
           app-name: neuvector
           chart: core
-          targetRevision: 2.7.2
+          targetRevision: 2.6.6
           repoURL: 'https://neuvector.github.io/neuvector-helm/'
           namespace: cattle-neuvector-system
         - cluster: home-cluster-rke
           app-name: nv-monitor
           chart: monitor
-          targetRevision: 2.7.2
+          targetRevision: 2.6.6
           repoURL: 'https://neuvector.github.io/neuvector-helm/'
           namespace: cattle-neuvector-system
         - cluster: practice-cluster

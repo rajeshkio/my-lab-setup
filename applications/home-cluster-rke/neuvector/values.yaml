@@ -1,6 +1,4 @@
 imagePullSecrets: regcred
-k3s:
-  enabled: "true"
 global:
   cattle:
     url: https://rancher.rajesh-kumar.in
