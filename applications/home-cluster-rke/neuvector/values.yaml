@@ -13,6 +13,8 @@ controller:
   federation:
     mastersvc:
       type: ClusterIP
+    managedsvc:
+      type: ClusterIP
   env:
     - name: CTRL_EN_ICMP_POLICY
       value: "1"
