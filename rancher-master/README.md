@@ -122,3 +122,7 @@ kubectl get clustersecretstore
 kubectl get externalsecret -A
 kubectl get ingressroute -A
 ```
+
+Create imagepullsecrets for dockerhub and use it with the applications:
+
+kubectl -n cattle-neuvector-system create secret generic regcred --from-file=.dockerconfigjson=/home/rajesh/.docker/config.json --type=kubernetes.io/dockerconfigjson

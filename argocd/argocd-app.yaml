@@ -10,49 +10,49 @@ spec:
         - cluster: local-cluster
           app-name: prometheus
           chart: kube-prometheus
-          targetRevision: 8.26.0
+          targetRevision: 9.0.3
           repoURL: 'https://charts.bitnami.com/bitnami'
           namespace: monitoring
         - cluster: local-cluster
           app-name: thanos
           chart: thanos
-          targetRevision: 13.0.0
+          targetRevision: 15.0.4
           repoURL: 'https://charts.bitnami.com/bitnami'
           namespace: monitoring
         - cluster: home-cluster-raspi
           app-name: grafana
           chart: grafana
-          targetRevision: 7.3.0
+          targetRevision: 7.3.7
           repoURL: 'https://grafana.github.io/helm-charts'
           namespace: monitoring
         - cluster: home-cluster-raspi
           app-name: prometheus
           chart: kube-prometheus
-          targetRevision: 8.26.0
+          targetRevision: 9.0.3
           repoURL: 'https://charts.bitnami.com/bitnami'
           namespace: monitoring
         - cluster: home-cluster-rke
           app-name: prometheus
           chart: kube-prometheus
-          targetRevision: 8.26.0
+          targetRevision: 9.0.3
           repoURL: 'https://charts.bitnami.com/bitnami'
           namespace: monitoring
         - cluster: home-cluster-rke
           app-name: neuvector
           chart: core
-          targetRevision: 2.7.1
+          targetRevision: 2.7.4
           repoURL: 'https://neuvector.github.io/neuvector-helm/'
           namespace: cattle-neuvector-system
         - cluster: home-cluster-rke
           app-name: nv-monitor
           chart: monitor
-          targetRevision: 2.7.1
+          targetRevision: 2.7.4
           repoURL: 'https://neuvector.github.io/neuvector-helm/'
           namespace: cattle-neuvector-system
         - cluster: practice-cluster
           app-name: prometheus
           chart: kube-prometheus
-          targetRevision: 8.26.0
+          targetRevision: 9.0.3
           repoURL: 'https://charts.bitnami.com/bitnami'
           namespace: monitoring
   template:
