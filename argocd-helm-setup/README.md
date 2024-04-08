@@ -1,6 +1,6 @@
 ### Argocd Workflow
 
-![Argocd Workflow](https://github.com/rk280392/my-lab-setup/blob/fbffd5fd2d0f80f8b826e1739092a78e7a27dc3d/argocd-helm-setup/argocd-github-implementation.png)
+![Argocd Workflow](https://github.com/rajeshkio/my-lab-setup/blob/fbffd5fd2d0f80f8b826e1739092a78e7a27dc3d/argocd-helm-setup/argocd-github-implementation.png)
 
 ### Deploy ArgoCD
 

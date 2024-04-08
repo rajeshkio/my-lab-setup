@@ -26,7 +26,7 @@ spec:
         namespace: '{{namespace}}'
         name: '{{cluster}}'
       source:
-        repoURL: https://github.com/rk280392/my-lab-setup.git
+        repoURL: https://github.com/rajeshkio/my-lab-setup.git
         path: 'applications/{{cluster}}/{{app-name}}/configmaps'
         targetRevision: HEAD
       syncPolicy:

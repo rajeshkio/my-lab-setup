@@ -56,5 +56,5 @@ configmap:
     # @default -- See values.yaml
     data:
       config.yml: |
-        externalConfig: https://raw.githubusercontent.com/rk280392/my-lab-setup/master/homer-app/config.yml.dist
+        externalConfig: https://raw.githubusercontent.com/rajeshkio/my-lab-setup/master/homer-app/config.yml.dist 
 
