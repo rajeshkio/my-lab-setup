@@ -7,7 +7,7 @@ controller:
     kubernetes.io/hostname: rajesh-sles
   replicas: 1
   ranchersso:
-    enabled: "true"
+    enabled: true
   apisvc:
     type: ClusterIP
   federation:
@@ -21,7 +21,7 @@ controller:
   pvc:
     enabled: true
     capacity: 5Gi
-  affinity: []
+  affinity: {}
 enforcer:
   env:
     - name: NV_SYSTEM_GROUPS
@@ -30,7 +30,7 @@ manager:
   svc:
     type: ClusterIP
   env:
-    ssl: "true"
+    ssl: true
 cve:
   scanner:
     replicas: 2
