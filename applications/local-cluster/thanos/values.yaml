@@ -1,7 +1,7 @@
 receive:
-  walCompression: true
+  replicaCount: 1
   enabled: "true"
-  logLevel: info
+  logLevel: debug
   tsdbRetention: 2d
   resources:
     limits:
@@ -11,7 +11,7 @@ receive:
     requests:
       cpu: 100m
       ephemeral-storage: 50Mi
-      memory: 3280Mi
+      memory: 1024Mi
 
 existingObjstoreSecret: "thanos-obj-secret"
 queryFrontend:
