@@ -1,5 +1,4 @@
 receive:
-  replicaCount: 1
   enabled: "true"
   logLevel: debug
   tsdbRetention: 2d
@@ -7,11 +6,11 @@ receive:
     limits:
       cpu: 150m
       ephemeral-storage: 1Gi
-      memory: 5020Mi
+      memory: null
     requests:
       cpu: 100m
       ephemeral-storage: 50Mi
-      memory: 1024Mi
+      memory: null
 
 existingObjstoreSecret: "thanos-obj-secret"
 queryFrontend:
