@@ -6,13 +6,6 @@ operator:
     containerSecurityContext:
       seLinuxOptions: {}
 prometheus:
-  resources:
-    requests:
-      cpu: 2
-      memory: 4Gi
-    limits:
-      cpu: 3
-      memory: 3Gi
   containerSecurityContext:
     seLinuxOptions: {}
   externalLabels:
