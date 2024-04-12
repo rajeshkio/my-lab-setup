@@ -9,10 +9,10 @@ prometheus:
   resources:
     requests:
       cpu: 2
-      memory: 1024Mi
+      memory: 4Gi
     limits:
       cpu: 3
-      memory: 2024Mi
+      memory: 3Gi
   containerSecurityContext:
     seLinuxOptions: {}
   externalLabels:
