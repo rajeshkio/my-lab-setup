@@ -49,12 +49,6 @@ spec:
           targetRevision: 2.7.4
           repoURL: 'https://neuvector.github.io/neuvector-helm/'
           namespace: cattle-neuvector-system
-        - cluster: practice-cluster
-          app-name: prometheus
-          chart: kube-prometheus
-          targetRevision: 9.0.3
-          repoURL: 'https://charts.bitnami.com/bitnami'
-          namespace: monitoring
   template:
     metadata:
       name: '{{cluster}}-{{app-name}}'
