@@ -12,9 +12,9 @@ controller:
   affinity: {}
 manager:
   svc:
-    type: NodePort
+    type: ClusterIP
   env:
-    ssl: true
+    ssl: false
 cve:
   scanner:
     replicas: 1
