@@ -7,12 +7,12 @@ spec:
   generators:
   - list:
       elements:
-        - cluster: local-cluster
-          app-name: thanos
-          namespace: monitoring
-        - cluster: home-cluster-raspi
-          app-name: grafana
-          namespace: monitoring
+#        - cluster: local-cluster
+#          app-name: thanos
+#          namespace: monitoring
+#        - cluster: home-cluster-raspi
+#          app-name: grafana
+#          namespace: monitoring
         - cluster: local-cluster
           app-name: neuvector
           namespace: cattle-neuvector-system
