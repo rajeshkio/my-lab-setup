@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: crds
+  namespace: argo
+spec:
+  generators:
+  - list:
+      elements:
+        - cluster: local-cluster
+          app-name: neuvector
+          namespace: cattle-neuvector-system
+  template:
+    metadata:
+      name: '{{cluster}}-{{app-name}}-crds'
+      namespace: argo
+    spec:
+      project: default
+      destination:
+        namespace: '{{namespace}}'
+        name: '{{cluster}}'
+      source:
+        repoURL: https://github.com/rajeshkio/my-lab-setup.git
+        path: 'applications/{{cluster}}/{{app-name}}/crds'
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true
