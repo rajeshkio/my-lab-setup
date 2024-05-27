@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  userinitcfg.yaml: |
+    users:
+    - Fullname: "{{ .CTRL_USERNAME }}"
+      Password: "{{ .CTRL_PASSWORD }}"
+      Role: admin
+    - Fullname: "userone"
+      Password: "{{ .USERONE_PASS }}"
+      Role: admin
+kind: ConfigMap
+metadata:
+  name: neuvector-init
+  namespace: cattle-neuvector-system

@@ -13,7 +13,7 @@ spec:
         - cluster: home-cluster-raspi
           app-name: grafana
           namespace: monitoring
-        - cluster: home-cluster-rke
+        - cluster: local-cluster
           app-name: neuvector
           namespace: cattle-neuvector-system
   template:

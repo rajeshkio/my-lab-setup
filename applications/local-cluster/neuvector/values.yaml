@@ -1,0 +1,20 @@
+rbac: true
+global:
+  cattle:
+    url: https://support.rancher.cloud/
+controller:
+  replicas: 3
+  ranchersso:
+    enabled: true
+  env:
+    - name: CTRL_EN_ICMP_POLICY
+      value: "1"
+  affinity: {}
+manager:
+  svc:
+    type: NodePort
+  env:
+    ssl: true
+cve:
+  scanner:
+    replicas: 1
