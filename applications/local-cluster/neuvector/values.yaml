@@ -10,6 +10,10 @@ controller:
     - name: CTRL_EN_ICMP_POLICY
       value: "1"
   affinity: {}
+  pvc:
+    enabled: true
+    storageClass: longhorn
+    capacity: 3G
 manager:
   svc:
     type: ClusterIP
