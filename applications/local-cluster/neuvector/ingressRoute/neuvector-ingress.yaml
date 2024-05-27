@@ -23,15 +23,13 @@ spec:
     - name: neuvector-svc-controller-api
       port: 10443
       scheme: https
-      serversTransport: nvskipverify
-  - match: Host(`nv-local.rajesh-kumar.in`) && PathPrefix(`/fed`)
+  - match: Host(`nv-local.rajesh-kumar.in`) && PathPrefix(`/fedmanaged`)
     kind: Rule
     services:
       - name: neuvector-svc-controller-fed-master
         passHostHeader: true
         port: 11443
         scheme: https
-        serversTransport: nvskipverify
     middlewares:
       - name: stripprefix
   - match: Host(`nv-local.rajesh-kumar.in`)
@@ -40,7 +38,6 @@ spec:
     - name: neuvector-service-webui
       port: 8443
       scheme: http
-      serversTransport: nvskipverify
   tls:
     secretName: rancher-tls-cert
 
