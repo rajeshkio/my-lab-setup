@@ -1,0 +1,139 @@
+apiVersion: v1
+items:
+- apiVersion: neuvector.com/v1
+  kind: NvClusterSecurityRule
+  metadata:
+    name: wwk-all-system-namespaces
+    namespace: ""
+  spec:
+    egress:
+    - action: allow
+      applications:
+      - SSL
+      name: nv.metrics-server.kube-system-egress-1
+      ports: tcp/4443
+      priority: 0
+      selector:
+        comment: ""
+        criteria:
+        - key: service
+          op: =
+          value: metrics-server.kube-system
+        - key: domain
+          op: =
+          value: kube-system
+        name: nv.metrics-server.kube-system
+        original_name: ""
+    - action: allow
+      applications:
+      - any
+      name: wwk-rancher-logging-root-fluentd.cattle-logging-system-egress-2
+      ports: tcp/24240
+      priority: 0
+      selector:
+        comment: ""
+        criteria:
+        - key: service
+          op: =
+          value: rancher-logging-root-fluent*
+        - key: domain
+          op: =
+          value: cattle-logging-system
+        name: wwk-rancher-logging-root-fluent
+        original_name: ""
+    - action: allow
+      applications:
+      - DNS
+      name: nv.coredns.kube-system-egress-3
+      ports: any
+      priority: 0
+      selector:
+        comment: ""
+        criteria:
+        - key: service
+          op: =
+          value: coredns.kube-system
+        - key: domain
+          op: =
+          value: kube-system
+        name: nv.coredns.kube-system
+        original_name: ""
+    - action: allow
+      applications:
+      - SSL
+      name: wwk-rancher-monitoring-prometheus-adapter.cattle-monitoring-system-egress-4
+      ports: tcp/6443
+      priority: 0
+      selector:
+        comment: ""
+        criteria:
+        - key: service
+          op: =
+          value: rancher-monitoring-prometheus-adapter.cattle-monitoring-system
+        - key: domain
+          op: =
+          value: cattle-monitoring-system
+        name: wwk-rancher-monitoring-prometheus-adapter.cattle-monitoring-system
+        original_name: ""
+    file: []
+    ingress: 
+    - action: allow
+      applications:
+      - any
+      name: wwk-all-nodes-ingress-0
+      ports: any
+      priority: 0
+      selector:
+        comment: ""
+        criteria: []
+        name: nodes
+        original_name: ""
+    process: []
+    target:
+      policymode: N/A
+      selector:
+        comment: all platform via namespaces
+        criteria:
+        - key: namespace
+          op: =
+          value: cattle-*
+        - key: namespace
+          op: =
+          value: argocd
+        - key: namespace
+          op: =
+          value: cis-operator-system
+        - key: namespace
+          op: =
+          value: ingress-nginx
+        - key: namespace
+          op: =
+          value: kasten-io
+        - key: namespace
+          op: =
+          value: kube*
+        - key: namespace
+          op: =
+          value: snapscheduler
+        - key: namespace
+          op: =
+          value: trident
+        - key: namespace
+          op: =
+          value: vault*
+        - key: namespace
+          op: =
+          value: kured
+        - key: namespace
+          op: =
+          value: kyverno
+        - key: namespace
+          op: =
+          value: policy-reporter
+        - key: namespace
+          op: =
+          value: sealed-secrets
+        name: wwk-all-system-namespaces
+        original_name: ""
+kind: List
+metadata: null
