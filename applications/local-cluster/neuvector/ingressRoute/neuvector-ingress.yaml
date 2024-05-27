@@ -37,7 +37,7 @@ spec:
     services:
     - name: neuvector-service-webui
       port: 8443
-      scheme: https
+      scheme: http
   tls:
     secretName: rancher-tls-cert
 
