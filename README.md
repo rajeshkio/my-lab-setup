@@ -27,22 +27,19 @@ Welcome to my Kubernetes lab setup! This document provides a comprehensive overv
 
 🔍 Diagram Summary
 
-The architecture diagram illustrates the following components and their interactions:
-
-👤 User Requests: Initiated by the user and forwarded by the Nginx Reverse Proxy.
-
-🔀 Nginx Reverse Proxy: Directs user requests to one of the three clusters (Cluster 1, Cluster 2, Cluster 3).
-
-🌐 Clusters:
-- Cluster 1:
-  - Deployed services include Vault.
-  - Node Exporter collects and forwards metrics to Prometheus 1.
-- Cluster 2:
-  - Deployed services include NeuVector and Grafana.
-  - Node Exporter collects and forwards metrics to Prometheus 2.
-- Cluster 3:
-  - Deployed services include ArgoCD.
-  - Node Exporter collects and forwards metrics to Prometheus 3.
+- The architecture diagram illustrates the following components and their interactions:
+- 👤 User Requests: Initiated by the user and forwarded by the Nginx Reverse Proxy.
+- 🔀 Nginx Reverse Proxy: Directs user requests to one of the three clusters (Cluster 1, Cluster 2, Cluster 3).
+- 🌐 Clusters:
+  - Cluster 1:
+    - Deployed services include Vault.
+    - Node Exporter collects and forwards metrics to Prometheus 1.
+  - Cluster 2:
+    - Deployed services include NeuVector and Grafana.
+    - Node Exporter collects and forwards metrics to Prometheus 2.
+  - Cluster 3:
+    - Deployed services include ArgoCD.
+    - Node Exporter collects and forwards metrics to Prometheus 3.
     
 - 📊 Prometheus Instances: Each cluster has its own Prometheus instance (Prometheus 1, Prometheus 2, Prometheus 3) that scrapes and collects metrics.
 - 🔗 Thanos: Aggregates metrics from all Prometheus instances and serves as a datasource for Grafana.
