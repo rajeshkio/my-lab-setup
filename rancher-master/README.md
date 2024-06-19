@@ -1,4 +1,3 @@
-```markdown
 # 🚀 Rancher Local Cluster Deployment
 
 Ensure to update the secrets with appropriate values. Dummy values are used here for demonstration purposes.
