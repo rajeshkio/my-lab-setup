@@ -10,6 +10,8 @@ controller:
     - name: CTRL_EN_ICMP_POLICY
       value: "1"
   affinity: {}
+  apisvc:
+    type: ClusterIP
 manager:
   svc:
     type: ClusterIP
