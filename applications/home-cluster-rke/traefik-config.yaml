@@ -4,6 +4,8 @@ service:
   externalIPs:
     - 192.168.1.102
     - 192.168.1.101
+additionalArguments:
+ - "--serversTransport.insecureSkipVerify=true" 
 logs:
   general:
     level: DEBUG
