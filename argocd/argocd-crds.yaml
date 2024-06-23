@@ -7,7 +7,7 @@ spec:
   generators:
   - list:
       elements:
-        - cluster: local-cluster
+        - cluster: home-cluster-rke
           app-name: neuvector
           namespace: cattle-neuvector-system
   template:

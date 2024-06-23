@@ -1,31 +1,15 @@
-imagePullSecrets: regcred
+rbac: true
 global:
   cattle:
-    url: https://rancher.rajesh-kumar.in
+    url: https://support.rancher.cloud/
 controller:
-  nodeSelector: 
-    kubernetes.io/hostname: rajesh-sles
   replicas: 1
   ranchersso:
     enabled: true
-  apisvc:
-    type: ClusterIP
-  federation:
-    mastersvc:
-      type: ClusterIP
-    managedsvc:
-      type: ClusterIP
   env:
     - name: CTRL_EN_ICMP_POLICY
       value: "1"
-  pvc:
-    enabled: true
-    capacity: 5Gi
   affinity: {}
-enforcer:
-  env:
-    - name: NV_SYSTEM_GROUPS
-      value: "*cattle-cluster*;*fleet-agent*"
 manager:
   svc:
     type: ClusterIP

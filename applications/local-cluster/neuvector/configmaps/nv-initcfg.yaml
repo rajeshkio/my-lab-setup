@@ -5,9 +5,6 @@ data:
     - Fullname: "{{ .CTRL_USERNAME }}"
       Password: "{{ .CTRL_PASSWORD }}"
       Role: admin
-    - Fullname: "userone"
-      Password: "{{ .USERONE_PASS }}"
-      Role: admin
 kind: ConfigMap
 metadata:
   name: neuvector-init

@@ -1,8 +1,12 @@
-additionalArguments:
-  - "--serversTransport.insecureSkipVerify=true"
-  - "--log.level=DEBUG"
 deployment:
   kind: DaemonSet
 service:
   externalIPs:
-    - "192.168.1.14"
+    - 192.168.1.102
+    - 192.168.1.101
+logs:
+  general:
+    level: DEBUG
+  access:
+    enabled: true
+    format: json

@@ -7,7 +7,7 @@ spec:
   project: default
   destination:
     namespace: argo
-    name: practice-cluster
+    name: home-cluster-rke
   source:
     repoURL: https://github.com/rajeshkio/my-lab-setup.git 
     path: argocd

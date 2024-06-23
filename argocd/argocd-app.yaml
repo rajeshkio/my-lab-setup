@@ -37,16 +37,16 @@ spec:
 #          targetRevision: 9.0.3
 #          repoURL: 'https://charts.bitnami.com/bitnami'
 #          namespace: monitoring
-        - cluster: local-cluster 
+        - cluster: home-cluster-rke 
           app-name: neuvector
           chart: core
-          targetRevision: 2.7.6
+          targetRevision: 2.7.7
           repoURL: 'https://neuvector.github.io/neuvector-helm/'
           namespace: cattle-neuvector-system
         - cluster: home-cluster-rke
           app-name: nv-monitor
           chart: monitor
-          targetRevision: 2.7.6
+          targetRevision: 2.7.7
           repoURL: 'https://neuvector.github.io/neuvector-helm/'
           namespace: cattle-neuvector-system
   template:
