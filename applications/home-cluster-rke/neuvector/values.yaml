@@ -12,6 +12,9 @@ controller:
   affinity: {}
   apisvc:
     type: NodePort 
+  federation:
+    managedsvc:
+      type: NodePort
 manager:
   svc:
     type: ClusterIP
