@@ -2,7 +2,7 @@ tag: 5.3.2
 rbac: true
 global:
   cattle:
-    url: https://support.rancher.cloud/
+    url: https://rancher.rajesh-kumar.in/ 
 controller:
   replicas: 1
   ranchersso:
@@ -10,6 +10,8 @@ controller:
   env:
     - name: CTRL_EN_ICMP_POLICY
       value: "1"
+    #- name" CTRL_PERSIST_CONFIG
+    #  value: "1"
   affinity: {}
   apisvc:
     type: NodePort 
