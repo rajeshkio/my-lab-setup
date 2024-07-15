@@ -55,15 +55,7 @@ kubectl -n cert-manager get secret rancher-tls-cert -o yaml | yq 'del(.metadata.
 
 ## Step 7: Store Secrets with Vault and External-Secrets
 
-```sh
-helm repo add hashicorp https://helm.releases.hashicorp.com
-helm install vault hashicorp/vault
-kubectl exec -it vault-0 vault operator init // COPY the tokens and store.
-kubectl exec -it vault-0 -- vault login $INITIAL_ROOT_TOKEN
-kubectl apply -f vaults/vaultTokenSecret.yaml
-kubectl apply -f ingresses/vault-ingress.yaml
-kubectl apply -f clusterSecretStore.yaml
-```
+Look at the README.md under vaults/ section.
 
 > **Note:** `rancher-master/rancher-tls-secret.yaml` needs to be created for each namespace and on each cluster where ingressroute is created. This file isn't part of the git repo for security issues.
 
