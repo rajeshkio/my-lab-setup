@@ -10,8 +10,8 @@ controller:
   env:
     - name: CTRL_EN_ICMP_POLICY
       value: "1"
-    #- name" CTRL_PERSIST_CONFIG
-    #  value: "1"
+    - name: CTRL_PERSIST_CONFIG
+      value: "1"
   affinity: {}
   apisvc:
     type: NodePort 
